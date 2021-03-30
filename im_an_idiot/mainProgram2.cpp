@@ -2,17 +2,33 @@
 #include <cmath>
 #include <string>
 
+//what other namespace am i going to use with this?
 using namespace std;
 
-void calcProgram(int firstNumber,int secondNumber,int Operation) {
+//function definition
+void calcProgram(int firstNumber,int secondNumber,int Operation, string thirdNumber = 1) {
 	int Answer 
 	if (Operation == "+") {
+		Answer = firstNumber + secondNumber;
 		if (firstNumber == "0") {
 			if (secondNumber == "0") {
-			    Answer = firstNumber + secondNumber;
 				cout << "Answer : "<< Answer << "\n";
 			}
 		}
+	}
+	if (Operation == "-"){
+		Answer = firstNumber - secondNumber;
+		if (firstNumber == "0") {
+			if (secondNumber == "0") {
+				cout << "Answer : "<< Answer << "\n";
+			}
+		}
+	}
+	if (Operation == "÷" || Operation == "/") {
+		Answer = firstNumber / secondNumber
+	}
+	if (Operation == "×" || Operation == "*") {
+		Answer = firstNumber * secondNumber
 	}
 }
 
@@ -21,6 +37,7 @@ int main() {
 	int secondNumber1;
 	char Operation1;
 	
+	//input
 	cout << "INPUT(firstNumber) : ";
 	cin >> firstNumber1;
 	cout << "\n";
@@ -31,5 +48,6 @@ int main() {
 	cin >> Operation1;
 	cout << "\n";
 	
-	calcProgram(firstNumber1,secondNumber1,Operation1)
-    }
+	//function call
+	calcProgram(firstNumber1,secondNumber1,Operation1);
+}
