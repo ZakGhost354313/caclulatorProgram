@@ -6,8 +6,9 @@
 using namespace std;
 
 //function definition
-void calcProgram(int firstNumber,int secondNumber,int Operation, string thirdNumber = 1) {
-	int Answer 
+void calcProgram(int firstNumber,int secondNumber,int Operation, int thirdNumber = 1) { 
+    string Answer = ""
+	// main thingy
 	if (Operation == "+") {
 		Answer = firstNumber + secondNumber;
 		if (firstNumber == "0") {
