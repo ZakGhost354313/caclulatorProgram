@@ -6,7 +6,7 @@
 using namespace std;
 
 //function definition
-void calcProgram(int firstNumber,int secondNumber,int Operation, int thirdNumber = 1) { 
+void calcProgram(int firstNumber,int secondNumber,int Operation) { 
     string Answer = ""
 	// main thingy
 	if (Operation == "+") {
@@ -36,7 +36,7 @@ void calcProgram(int firstNumber,int secondNumber,int Operation, int thirdNumber
 int main() {
 	int firstNumber1;
 	int secondNumber1;
-	char Operation1;
+	int Operation1;
 	
 	//input
 	cout << "INPUT(firstNumber) : ";
