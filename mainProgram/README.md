@@ -1,5 +1,5 @@
 <b>calculatorProgram</b><br><br>
-this `calculator_program` is a calculator that i am making, with  easter eggs for me and my friends<br>
+this `calculatorProgram` is a calculator that i am making, with  easter eggs for me and my friends<br>
 the `easterEgg()` function is the easter egg conformation.<br>
 if you want to add an easter egg, ask in the discussions.<br>
 
