@@ -35,7 +35,7 @@ int main1() {
     ghost::easterEgg(input,2)
     //main program/other program
     
-    //equations
+        //equations
     if (input == "0+0") {
         std::cout << "\nAnswer : 0\n";
     }
@@ -131,6 +131,10 @@ int main1() {
     using namespace std;
     if (input == "3+0") {
         answer = 3+0
+        cout << "Answer : " << answer << endl;
+    }
+    if (input == "3+1") {
+        answer = 3+1
         cout << "Answer : " << answer << endl;
     }
     //not done
