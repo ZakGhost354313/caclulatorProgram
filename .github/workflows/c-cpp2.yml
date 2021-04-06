@@ -1,0 +1,75 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: configure
+      run: ./configure
+    - name: make
+      run: make
+    - name: make check
+      run: make check
+    - name: make distcheck
+      run: make distcheck
+- name: Setup Node.js environment
+  uses: actions/setup-node@v2.1.5
+  with:
+    # Set always-auth in npmrc
+    always-auth: # optional, default is false
+    # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
+    node-version: # optional
+    # Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
+    architecture: # optional
+    # Set this option if you want the action to check for the latest available version that satisfies the version spec
+    check-latest: # optional
+    # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN
+    registry-url: # optional
+    # Optional scope for authenticating against scoped registries
+    scope: # optional
+    # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
+    token: # optional, default is ${{ github.token }}
+    # Deprecated. Use node-version instead. Will not be supported after October 1, 2019
+    version: # optional
+- name: Run Parasoft C/C++test
+  # You may pin to the exact commit or the version.
+  # uses: parasoft/run-cpptest-action@cc5b3aee7f9dc5a58df14905da5adf5b5fa8c79a
+  uses: parasoft/run-cpptest-action@0.2.4-alpha
+  with:
+    # Installation folder of Parasoft C/C++test. If not specified, the cpptestcli executable must be added to $PATH.
+    installDir: # optional
+    # Working directory for running C/C++test.
+    workingDir: # optional, default is ${{ github.workspace }}
+    # Identifier of a compiler configuration. Ensure you specify the configuration that matches your compiler.
+    compilerConfig: # optional, default is gcc_9-64
+    # Test configuration to be used for code analysis.
+    testConfig: # optional, default is builtin://Recommended Rules
+    # Output folder for reports from code analysis.
+    reportDir: # optional, default is reports
+    # Format of reports from code analysis.
+    reportFormat: # optional, default is xml,html,sarif
+    # Input scope for analysis (typically, cpptestscan.bdf or compile_commands.json, depending on the project type and the build system).
+    input: # optional, default is cpptestscan.bdf
+    # Additional parameters for the cpptestcli executable.
+    additionalParams: # optional, default is 
+    # Command line pattern for running C/C++test.
+    commandLinePattern: # optional, default is ${cpptestcli} -compiler "${compilerConfig}" -config "${testConfig}" -property report.format=${reportFormat} -report "${reportDir}" -module . -input "${input}" ${additionalParams}    
+- name: First interaction
+  uses: actions/first-interaction@v1.1.0
+  with:
+    # Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}
+    repo-token: ${{ secrets.GITHUB_TOKEN }}
+    # Comment to post on an individual's first issue
+    issue-message: 'hey, you made ur first issue, noice'
+    # Comment to post on an individual's first pull request
+    pr-message: 'nice first pull request' first pr. Look, a `code block` for markdown.'
+    
